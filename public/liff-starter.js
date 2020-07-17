@@ -122,12 +122,13 @@ function registerButtonHandlers() {
 
     // sendMessages call
     document.getElementById('sendMessageButton').addEventListener('click', function() {
+     const v = document.getElementById('sendMessageText').value
         if (!liff.isInClient()) {
             sendAlertIfNotInClient();
         } else {
             liff.sendMessages([{
                 'type': 'text',
-                'text': "You've successfully sent a message! Hooray!"
+                'text': "庄对+ "+v
             }]).then(function() {
                 window.alert('Message sent');
             }).catch(function(error) {
